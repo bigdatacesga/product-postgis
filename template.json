@@ -1,0 +1,23 @@
+{
+  "dnsname": "{{ clusterid }}",
+  "nodes": {
+    "postgresql_node0": {
+      "docker_image": "docker-registry.cesga.es:5000/postgis:12",
+      "docker_opts": "-e POSTGRES_PASSWORD={{ opts['password'] }} -e POSTGRES_USER=postgresql -e POSTGRES_DB=test ",
+      "cpu": {{ opts['cpu'] }},
+      "mem": {{ opts['mem'] }},
+      "disks": {
+        "disk0": {
+          "destination":  "/data"
+        }
+      },
+      "networks": {
+        "eth0": {"type": "dynamic", "networkname": "storage"},
+        "eth1": {"type": "dynamic", "networkname": "admin" }
+      }
+    }
+  },
+  "services": {
+      "postgresql": { "nodes": ["postgresql_node0"] }
+  }
+}

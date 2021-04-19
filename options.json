@@ -1,0 +1,17 @@
+{
+    "required": {
+      "password": "secret"
+    },
+    "optional": {
+        "cpu": 2,
+        "mem": 2048
+    },
+    "advanced": {
+    },
+    "descriptions": {
+        "user": "User with superuser power",
+        "password": "Numerical password that will be set for the PostgreSQL postgresql superuser account",
+        "cpu": "Number of CPUs per node",
+        "mem": "Memory per node (MB)"
+    }
+}
